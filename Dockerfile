@@ -8,14 +8,13 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir flask pika
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 4002 available to the world outside this container
 EXPOSE 4002
 
 # Define environment variable
 ENV PORT=4002
-
 ENV AMQP_URL='amqp://guest:guest@redditmqmg.a2gkhna2h0crepaw.eastus.azurecontainer.io:5672/'
 
 # Run app.py when the container launches
