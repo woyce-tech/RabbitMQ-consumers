@@ -58,6 +58,6 @@ if __name__ == '__main__':
     consumer_thread = Thread(target=start_consumer)
     consumer_thread.start()
     try:
-        app.run(port=PORT)
+        app.run(host="0.0.0.0", debug=True, port=PORT)
     finally:
         consumer_thread.join()
